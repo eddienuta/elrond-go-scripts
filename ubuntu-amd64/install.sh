@@ -31,7 +31,7 @@ mkdir -p $GOPATH/src/github.com/ElrondNetwork/elrond-go-node/config
 cp *.* $GOPATH/src/github.com/ElrondNetwork/elrond-go-node/config
 
 #compile elrond-go
-cd ../elrond-go
+cd $GOPATH/src/github.com/ElrondNetwork/elrond-go
 GO111MODULE=on go mod vendor
 cd cmd/node && go build -i -v -ldflags="-X main.appVersion=$(git describe --tags --long --dirty)"
 cp node $GOPATH/src/github.com/ElrondNetwork/elrond-go-node
