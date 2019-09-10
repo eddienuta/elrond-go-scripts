@@ -2,7 +2,12 @@
 
 #the node number can be passed to this script as the 1st argument
 #if no argument is passed, the standard node work folder is used
-node_number=$1
+
+if [ $# -eq 0 ]; then
+	node_number=1
+else
+	node_number=$1
+fi
 rest_api_port=8080
 
 if [ "$node_number" -ge 2 -a "$node_number" -le 99 ]; then
