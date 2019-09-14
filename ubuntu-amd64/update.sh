@@ -17,6 +17,7 @@ cd cmd/node
 GO111MODULE=on go mod vendor
 go build -i -v -ldflags="-X main.appVersion=$(git describe --tags --long --dirty)"
 cp node $GOPATH/src/github.com/ElrondNetwork/elrond-go-node
+cp config/config.toml $GOPATH/src/github.com/ElrondNetwork/elrond-go-node/config/config.toml
 
 #refetch and rebuild elrond-config
 cd $HOME/go/src/github.com/ElrondNetwork/elrond-config
