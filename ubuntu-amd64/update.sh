@@ -13,6 +13,7 @@ NC='\x1B[0m'
 cd $HOME/go/src/github.com/ElrondNetwork/elrond-go
 git fetch
 git checkout --force $BINARYVER
+git pull
 cd cmd/node
 GO111MODULE=on go mod vendor
 go build -i -v -ldflags="-X main.appVersion=$(git describe --tags --long --dirty)"
@@ -22,6 +23,7 @@ cp node $GOPATH/src/github.com/ElrondNetwork/elrond-go-node
 cd $HOME/go/src/github.com/ElrondNetwork/elrond-config
 git fetch
 git checkout --force $CONFIGVER
+git pull
 cp *.* $GOPATH/src/github.com/ElrondNetwork/elrond-go-node/config
 
 #choose node name
@@ -32,6 +34,15 @@ then
     sed -i 's|NodeDisplayName = ""|NodeDisplayName = "'"$node_name"'"|g' config.toml	
 fi
 
-#run the node
+#cleanup db
 cd $GOPATH/src/github.com/ElrondNetwork/elrond-go-node
-./node
+read -p "Remove db? (default yes): " rem_db
+if [ "$rem_db" != "no" ]
+then
+  sudo rm -rd db
+fi
+
+#run the node
+sudo rm -rd logs
+sudo rm -rd stats
+./node1
