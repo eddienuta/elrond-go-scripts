@@ -1,7 +1,7 @@
 #!/bin/bash
 
 BINARYVER='tags/v1.0.16'
-CONFIGVER='master'
+CONFIGVER='tags/testnet-1016'
 
 #Color to the people
 RED='\x1B[0;31m'
@@ -45,4 +45,4 @@ fi
 #run the node
 sudo rm -rd logs
 sudo rm -rd stats
-./node1
+./node
