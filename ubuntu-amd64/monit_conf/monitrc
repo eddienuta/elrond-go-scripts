@@ -1,0 +1,37 @@
+set daemon 30
+   with start delay 60
+
+set log /var/log/monit.log
+set idfile /var/lib/monit/id
+set statefile /var/lib/monit/state
+
+
+#Set this next section up with your own gmail account credentials
+#-----------------------------------------------------------------
+set mailserver smtp.gmail.com port 587
+       username "username" password "password"
+       using tlsv1
+       with timeout 30 seconds
+#-----------------------------------------------------------------
+
+set eventqueue
+     basedir /var/lib/monit/events
+     slots 100
+
+#Insert your email address here in order to get email notifications from monit
+#-----------------------------------------------------------------
+set alert email@domain.com not on { instance, action }
+#-----------------------------------------------------------------
+
+set httpd port 2812 and
+    use address localhost
+    allow localhost
+
+check system $HOST
+    if cpu usage > 95% for 10 cycles then alert
+    if cpu usage (wait) > 30% then alert
+    if loadavg (15min) > 6 then alert
+    if memory usage > 95% then alert
+    
+include /etc/monit/conf.d/*
+include /etc/monit/conf-enabled/*

@@ -1,0 +1,7 @@
+#This config checks for a running instance of the node. If not found it runs the start_screen.sh script
+#!!! If you want to trigger actions after a node relaunch uncomment the last line and insert your script there
+
+check process node matching "node"
+	start program = "/bin/bash -c '/home/ubuntu/elrond-go-scripts/ubuntu-amd64/start_screen.sh'"as uid ubuntu and gid ubuntu
+	stop program = "/usr/bin/screen -r testnet -X quit"
+#IF does not exist THEN restart ELSE IF SUCCEEDED THEN exec "/bin/bash -c '<run-something-after-node-relaunch>.sh'" as uid ubuntu and gid ubuntu
