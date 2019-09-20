@@ -1,7 +1,7 @@
 #!/bin/bash
 
-BINARYVER='tags/v1.0.16'
-CONFIGVER='tags/testnet-1016'
+BINARYVER='tags/v1.0.17'
+CONFIGVER='master'
 
 #Color to the people
 RED='\x1B[0;31m'
