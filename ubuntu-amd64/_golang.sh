@@ -18,6 +18,7 @@ if ! [ -x "$(command -v go)" ];
       sudo apt-get upgrade -y
       sudo apt install -y git
       sudo apt install -y curl
+      sudo apt install -y screen
       #Get the latest version of GO for amd64 & installing it
       echo -e "${RED}GO is not installed on your system${NC}"  
       GO_LATEST=$(curl -sS https://golang.org/VERSION?m=text)
