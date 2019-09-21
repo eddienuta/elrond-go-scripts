@@ -41,8 +41,19 @@ if [ "$rem_db" != "no" ]
 then
   sudo rm -rd db
 fi
-
-#run the node
 sudo rm -rd logs
 sudo rm -rd stats
-./node
+
+
+#ask about screen launch
+read -p "Launch on virtual screen? (default no): " on_screen
+if [ ! "$on_screen" = "yes" ]
+then
+  ./node
+else
+  screen -A -m -d -S testnet ./node
+fi
+
+#run the node
+
+
