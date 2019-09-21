@@ -47,7 +47,7 @@ sudo rm -rd stats
 
 #ask about screen launch
 read -p "Launch on virtual screen? (default no): " on_screen
-if [ ! "$on_screen" = "yes" ]
+if [ "$on_screen" = "no" ]
 then
   ./node
 else
