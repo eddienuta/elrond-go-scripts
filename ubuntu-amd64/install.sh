@@ -14,6 +14,7 @@ echo -e "${GREEN}--> installing Elrond-go{NC}"
 echo -e
 
 #setup
+bash _prerequisite.sh
 bash _golang.sh
 cd $GOPATH
 mkdir -p $GOPATH/src/github.com/ElrondNetwork
