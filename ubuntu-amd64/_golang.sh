@@ -26,6 +26,7 @@ if ! [ -x "$(command -v go)" ];
   
     else
       VER=$(go version)
+      echo -e
       echo -e "${GREEN}GO is already installed: ${CYAN}$VER${NC}${GREEN}...skipping install${NC}"
       
   fi
