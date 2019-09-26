@@ -1,11 +1,11 @@
 cd %userprofile%
 
 :: Install GIT 64bit.
-powershell -Command "(New-Object Net.WebClient).DownloadFile('https://github.com/git-for-windows/git/releases/download/v2.23.0.windows.1/Git-2.23.0-64-bit.exe', 'Git-2.23.0-64-bit.exe')"
+powershell -command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; $clnt = new-object System.Net.WebClient; $clnt.DownloadFile('https://github.com/git-for-windows/git/releases/download/v2.23.0.windows.1/Git-2.23.0-64-bit.exe', 'Git-2.23.0-64-bit.exe')"
 .\Git-2.23.0-64-bit.exe /SILENT
 
 :: Install GO Lang 1.13 64bit.
-powershell -Command "(New-Object Net.WebClient).DownloadFile('https://dl.google.com/go/go1.13.windows-amd64.msi', 'go1.13.windows-amd64.msi')"
+powershell -command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; $clnt = new-object System.Net.WebClient; $clnt.DownloadFile('https://dl.google.com/go/go1.13.windows-amd64.msi', 'go1.13.windows-amd64.msi')"
 msiexec /i go1.13.windows-amd64.msi /quiet /qn
 
 echo
