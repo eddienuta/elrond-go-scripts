@@ -22,8 +22,8 @@ if [[ $answer = y ]] ; then
                 echo -e "${GREEN}--> Copying config files for monit & restarting service...{NC}"
                 echo -e
 
-                sudo cp /home/ubuntu/elrond-go-scripts/ubuntu-amd64/monit_conf/testnet /etc/monit/conf.d/testnet
-                sudo cp /home/ubuntu/elrond-go-scripts/ubuntu-amd64/monit_conf/monitrc /etc/monit/monitrc
+                sudo cp $HOME/elrond-go-scripts/ubuntu-amd64/monit_conf/testnet /etc/monit/conf.d/testnet
+                sudo cp $HOME/elrond-go-scripts/ubuntu-amd64/monit_conf/monitrc /etc/monit/monitrc
                 sudo service monit restart
       else
         echo -e

@@ -23,7 +23,7 @@ bash _golang.sh
 
 #Handle some paths
 export PATH=$PATH:/usr/local/go/bin
-export GOPATH=/home/ubuntu/go
+export GOPATH=$HOME/go
 cd $GOPATH
 
 #If repos are present and you run install again this will clean up for you :D

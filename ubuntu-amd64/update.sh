@@ -9,6 +9,9 @@ CYAN='\x1B[0;36m'
 GREEN='\x1B[0;32m'
 NC='\x1B[0m'
 
+#Handle some paths
+export GOPATH=$HOME/go
+
 #Refetch and rebuild elrond-go
 cd $HOME/go/src/github.com/ElrondNetwork/elrond-go
 git fetch
