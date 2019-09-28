@@ -6,7 +6,8 @@ Scripts built for & testet on Ubuntu 18.04 LTS Server (should work on other rela
 Remeber to do:
 ```
 git fetch
-git --force pull
+git reset --hard
+git pull
 ```
 after the announcement of a new testnet.
 
