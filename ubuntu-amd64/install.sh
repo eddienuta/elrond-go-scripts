@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BINARYVER='tags/v1.0.18'
+BINARYVER='tags/v1.0.19'
 CONFIGVER='tags/testnet-1018'
 
 

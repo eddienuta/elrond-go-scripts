@@ -2,7 +2,7 @@
 @echo off
 cd %userprofile%
 
-SET BINTAG=v1.0.18
+SET BINTAG=v1.0.19
 SET CONFTAG=testnet-1018
 
 :: Create Paths
