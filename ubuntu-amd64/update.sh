@@ -1,7 +1,9 @@
 #!/bin/bash
 
-BINARYVER='tags/v1.0.19'
-CONFIGVER='tags/testnet-1018'
+#BINARYVER='tags/v1.0.19'
+#CONFIGVER='tags/testnet-1018'
+BINARYVER="tags/$(curl --silent "https://api.github.com/repos/ElrondNetwork/elrond-go/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")')"
+CONFIGVER="tags/$(curl --silent "https://api.github.com/repos/ElrondNetwork/elrond-config/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")')"
 
 #Color to the people
 RED='\x1B[0;31m'
