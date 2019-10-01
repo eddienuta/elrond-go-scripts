@@ -4,7 +4,7 @@ Scripts for easy install and update of an elrond-go node
 
 ## ubuntu-amd64 ##
 
-Scripts built for & testet on Ubuntu 18.04 LTS Server (should work on other related distros). <br>
+Scripts built for & testet on Ubuntu 18.04 LTS Server (should work on other related distros).
 Remeber to do:
 
 ```bash
