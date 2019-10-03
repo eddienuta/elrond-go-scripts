@@ -21,6 +21,8 @@ cd %GOPATH%\src\github.com\ElrondNetwork\elrond-config
 copy /Y *.* %GOPATH%\src\github.com\ElrondNetwork\elrond-go\cmd\node\config
 
 :: Build the node executable
+cd %GOPATH%\pkg\mod\cache
+del /s *.lock
 cd %GOPATH%\src\github.com\ElrondNetwork\elrond-go\cmd\node
 @echo on
 SET GO111MODULE=on
