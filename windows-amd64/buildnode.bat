@@ -2,8 +2,8 @@
 @echo off
 cd %userprofile%
 
-SET BINTAG=v1.0.19
-SET CONFTAG=testnet-1018
+SET BINTAG=v1.0.20
+SET CONFTAG=dry-run-BoN
 
 :: Create Paths
 if not exist "%GOPATH%\src\github.com\ElrondNetwork" mkdir %GOPATH%\src\github.com\ElrondNetwork
