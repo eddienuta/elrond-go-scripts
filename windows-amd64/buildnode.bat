@@ -2,8 +2,8 @@
 @echo off
 cd %userprofile%
 
-SET BINTAG=v1.0.19
-SET CONFTAG=testnet-1018
+SET BINTAG=v1.0.23
+SET CONFTAG=BoN-ph1-w1-01
 
 :: Create Paths
 if not exist "%GOPATH%\src\github.com\ElrondNetwork" mkdir %GOPATH%\src\github.com\ElrondNetwork
@@ -21,6 +21,8 @@ cd %GOPATH%\src\github.com\ElrondNetwork\elrond-config
 copy /Y *.* %GOPATH%\src\github.com\ElrondNetwork\elrond-go\cmd\node\config
 
 :: Build the node executable
+cd %GOPATH%\pkg\mod\cache
+del /s *.lock
 cd %GOPATH%\src\github.com\ElrondNetwork\elrond-go\cmd\node
 @echo on
 SET GO111MODULE=on
