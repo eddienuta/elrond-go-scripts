@@ -53,11 +53,11 @@ cd $GOPATH/src/github.com/ElrondNetwork/elrond-go-node
 read -p "Do you want to remove the current Node DB? (default yes): " rem_db
 if [ "$rem_db" != "no" ]
 then
-  sudo rm -rd db
+  sudo rm -rf db
 fi
 
-sudo rm -rd logs
-sudo rm -rd stats
+sudo rm -rf logs
+sudo rm -rf stats
 
 
 echo -e
