@@ -17,6 +17,9 @@ export GOPATH=$HOME/go
 #Stop the currently running node binary
 if (screen -ls | grep testnet -c); then screen -X -S testnet quit; else tmux kill-session -t testnet; fi
 
+#Fetch the current node name
+NODE_NAME=$(grep NodeDisplayName $HOME/go/src/github.com/ElrondNetwork/elrond-go-node/config/config.toml | grep -v "#" | cut -d "=" -f2 | tr -d " " | tr -d "\"")
+
 #Refetch and rebuild elrond-go
 cd $HOME/go/src/github.com/ElrondNetwork/elrond-go
 git fetch
@@ -36,13 +39,14 @@ cp *.* $GOPATH/src/github.com/ElrondNetwork/elrond-go-node/config
 
 #Choose a custom node name... or leave it at default
 echo -e
-echo -e "${GREEN}--> Build ready. Time to choose a node name...${NC}"
+echo -e "${GREEN}--> Build ready....${NC}"
 echo -e
 
 cd $GOPATH/src/github.com/ElrondNetwork/elrond-go-node/config
 CURRENT=$(sed -e 's#.*-\(\)#\1#' <<< "$CONFIGVER")
 
-read -p "Choose a custom name (default community-validator-$CURRENT): " NODE_NAME
+#No need to get node name input - already read above from config.toml
+#read -p "Choose a custom name (default community-validator-$CURRENT): " NODE_NAME
 if [ "$NODE_NAME" = "" ]
 then
     NODE_NAME="community-validator-$CURRENT"
