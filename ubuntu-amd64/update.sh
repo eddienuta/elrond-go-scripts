@@ -31,6 +31,9 @@ git checkout --force $CONFIGVER
 git pull
 cp *.* $GOPATH/src/github.com/ElrondNetwork/elrond-go-node/config
 
+#Stop the currently running node binary
+if (screen -ls | grep testnet -c); then screen -X -S testnet quit; else tmux kill-session -t testnet; fi
+
 #Choose a custom node name... or leave it at default
 echo -e
 echo -e "${GREEN}--> Build ready. Time to choose a node name...${NC}"
