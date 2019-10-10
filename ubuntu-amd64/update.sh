@@ -14,6 +14,9 @@ NC='\x1B[0m'
 #Handle some paths
 export GOPATH=$HOME/go
 
+#Stop the currently running node binary
+if (screen -ls | grep testnet -c); then screen -X -S testnet quit; else tmux kill-session -t testnet; fi
+
 #Refetch and rebuild elrond-go
 cd $HOME/go/src/github.com/ElrondNetwork/elrond-go
 git fetch
@@ -30,9 +33,6 @@ git fetch
 git checkout --force $CONFIGVER
 git pull
 cp *.* $GOPATH/src/github.com/ElrondNetwork/elrond-go-node/config
-
-#Stop the currently running node binary
-if (screen -ls | grep testnet -c); then screen -X -S testnet quit; else tmux kill-session -t testnet; fi
 
 #Choose a custom node name... or leave it at default
 echo -e
