@@ -9,6 +9,9 @@ CYAN='\x1B[0;36m'
 GREEN='\x1B[0;32m'
 NC='\x1B[0m'
 
+#get current node name
+node_name=$(grep NodeDisplayName $HOME/go/src/github.com/ElrondNetwork/elrond-go-node/config/config.toml | grep -v "#" | cut -d "=" -f2 | tr -d " " | tr -d "\"")
+
 #refetch and rebuild elrond-go
 cd $HOME/go/src/github.com/ElrondNetwork/elrond-go
 git fetch
@@ -24,9 +27,9 @@ git fetch
 git checkout --force $CONFIGVER
 cp *.* $GOPATH/src/github.com/ElrondNetwork/elrond-go-node/config
 
-#choose node name
+#choose node name based on previously read value
 cd $GOPATH/src/github.com/ElrondNetwork/elrond-go-node/config
-read -p "Choose the name of your node (default \"\"): " node_name
+#read -p "Choose the name of your node (default \"\"): " node_name
 if [ ! "$node_name" = "" ]
 then
     sed -i 's|NodeDisplayName = ""|NodeDisplayName = "'"$node_name"'"|g' config.toml	
